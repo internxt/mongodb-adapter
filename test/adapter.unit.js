@@ -2,6 +2,7 @@
 
 var storj = require('storj-lib');
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 var expect = require('chai').expect;
 var MongoAdapter = require('..');
 
@@ -10,7 +11,9 @@ describe('MongoAdapter', function() {
   var storage = null;
 
   before(function(done) {
-    mongoose.connect('mongodb://localhost/storj-mongo-test', function(err) {
+    mongoose.connect('mongodb://localhost/storj-mongo-test',
+    { useMongoClient: true },
+    function(err) {
       storage = new MongoAdapter(mongoose);
       done(err);
     });
@@ -65,6 +68,7 @@ describe('MongoAdapter', function() {
 
   after(function(done) {
     storage._model.remove(done);
+    mongoose.connection.close();
   });
 
 });
