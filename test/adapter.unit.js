@@ -12,7 +12,7 @@ describe('MongoAdapter', function() {
 
   before(function(done) {
     mongoose.connect('mongodb://localhost/storj-mongo-test',
-    { useMongoClient: true },
+    { useNewUrlParser: true, useCreateIndex: true },
     function(err) {
       storage = new MongoAdapter(mongoose);
       done(err);
@@ -20,7 +20,6 @@ describe('MongoAdapter', function() {
   });
 
   describe('#put', function() {
-
     it('should throw if invalid storage item supplied', function() {
       expect(function() {
         storage.put({ wrong: 'type' });
@@ -35,11 +34,9 @@ describe('MongoAdapter', function() {
         done();
       });
     });
-
   });
 
   describe('#get', function() {
-
     it('should callback error if no shard found', function(done) {
       storage.get(storj.utils.rmd160('wrongkey'), function(err) {
         expect(err.message).to.equal('Shard data not found');
@@ -59,16 +56,14 @@ describe('MongoAdapter', function() {
   });
 
   describe('#flush', function() {
-
     it('should not throw', function(done) {
       storage.flush(done);
     });
-
   });
 
   after(function(done) {
-    storage._model.remove(done);
-    mongoose.connection.close();
+    storage._model.remove();
+    mongoose.connection.close(done);
   });
 
 });
