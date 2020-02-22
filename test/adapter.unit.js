@@ -6,46 +6,46 @@ mongoose.Promise = global.Promise;
 var expect = require('chai').expect;
 var MongoAdapter = require('..');
 
-describe('MongoAdapter', function() {
+describe('MongoAdapter', function () {
 
   var storage = null;
 
-  before(function(done) {
+  before(function (done) {
     mongoose.connect('mongodb://localhost/storj-mongo-test',
-    { useNewUrlParser: true, useCreateIndex: true },
-    function(err) {
-      storage = new MongoAdapter(mongoose);
-      done(err);
-    });
+      { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
+      function (err) {
+        storage = new MongoAdapter(mongoose);
+        done(err);
+      });
   });
 
-  describe('#put', function() {
-    it('should throw if invalid storage item supplied', function() {
-      expect(function() {
+  describe('#put', function () {
+    it('should throw if invalid storage item supplied', function () {
+      expect(function () {
         storage.put({ wrong: 'type' });
       }).to.throw(Error, 'Invalid storage item supplied');
     });
 
-    it('should put the item into the database', function(done) {
+    it('should put the item into the database', function (done) {
       storage.put(storj.StorageItem({
         hash: storj.utils.rmd160('key')
-      }), function(err) {
+      }), function (err) {
         expect(err).to.equal(null);
         done();
       });
     });
   });
 
-  describe('#get', function() {
-    it('should callback error if no shard found', function(done) {
-      storage.get(storj.utils.rmd160('wrongkey'), function(err) {
+  describe('#get', function () {
+    it('should callback error if no shard found', function (done) {
+      storage.get(storj.utils.rmd160('wrongkey'), function (err) {
         expect(err.message).to.equal('Shard data not found');
         done();
       });
     });
 
-    it('should callback with the storage item', function(done) {
-      storage.get(storj.utils.rmd160('key'), function(err, item) {
+    it('should callback with the storage item', function (done) {
+      storage.get(storj.utils.rmd160('key'), function (err, item) {
         expect(err).to.equal(null);
         expect(item).to.be.instanceOf(storj.StorageItem);
         expect(item.hash).to.equal(storj.utils.rmd160('key'));
@@ -55,13 +55,13 @@ describe('MongoAdapter', function() {
 
   });
 
-  describe('#flush', function() {
-    it('should not throw', function(done) {
+  describe('#flush', function () {
+    it('should not throw', function (done) {
       storage.flush(done);
     });
   });
 
-  after(function(done) {
+  after(function (done) {
     storage._model.remove();
     mongoose.connection.close(done);
   });
