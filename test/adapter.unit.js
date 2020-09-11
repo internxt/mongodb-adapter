@@ -64,7 +64,7 @@ describe('MongoAdapter', function() {
   });
 
   after(function(done) {
-    storage._model.remove(done);
+    storage._model.deleteMany(done);
   });
 
 });
