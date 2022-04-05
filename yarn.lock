@@ -3460,9 +3460,9 @@ statuses@~1.4.0:
   version "1.5.0"
   resolved "https://codeload.github.com/internxt/service-error-types/tar.gz/29a0c2e8a439ab7b9ff3c110a3eadf16932b3a1c"
 
-"storj-service-storage-models@github:internxt/service-storage-models#10.6.1-beta":
+"storj-service-storage-models@github:internxt/service-storage-models#update/update-with-master":
   version "10.6.1-beta"
-  resolved "https://codeload.github.com/internxt/service-storage-models/tar.gz/8fbd3d2d435e07def534e2f7772c1580e4edd404"
+  resolved "https://codeload.github.com/internxt/service-storage-models/tar.gz/9396c5815d40552b2626886f3d1ffff94dd615af"
   dependencies:
     bluebird "^3.4.7"
     coinpayments "^2.1.1"
@@ -3482,7 +3482,7 @@ statuses@~1.4.0:
     storj-lib "github:internxt/core#v8.7.3-beta"
     storj-service-error-types "github:internxt/service-error-types"
     stripe "^8.142.0"
-    uuid-validate "^0.0.3"
+    uuid "^8.3.2"
 
 stream-transform@^2.1.3:
   version "2.1.3"
@@ -3704,11 +3704,6 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid-validate@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/uuid-validate/-/uuid-validate-0.0.3.tgz#e30617f75dc742a0e4f95012a11540faf9d39ab4"
-  integrity sha512-Fykw5U4eZESbq739BeLvEBFRuJODfrlmjx5eJux7W817LjRaq4b7/i4t2zxQmhcX+fAj4nMfRdTzO4tmwLKn0w==
-
 uuid@3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
@@ -3718,6 +3713,11 @@ uuid@^3.0.0, uuid@^3.3.2, uuid@^3.3.3:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 vary@~1.1.2:
   version "1.1.2"

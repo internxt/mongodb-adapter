@@ -24,7 +24,7 @@
   "dependencies": {
     "mongoose": "^5.10.4",
     "storj-lib": "github:internxt/core#v8.7.3-beta",
-    "storj-service-storage-models": "github:internxt/service-storage-models#10.6.1-beta"
+    "storj-service-storage-models": "github:internxt/service-storage-models#update/update-with-master"
   },
   "devDependencies": {
     "chai": "^3.5.0",
