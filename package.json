@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/Storj/mongodb-adapter#readme",
   "dependencies": {
-    "mongoose": "^5.10.4",
+    "mongoose": "^5.13.20",
     "storj-lib": "github:internxt/core#v8.7.3-beta",
-    "storj-service-storage-models": "github:internxt/service-storage-models#v10.6.2"
+    "storj-service-storage-models": "github:internxt/service-storage-models#v10.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
